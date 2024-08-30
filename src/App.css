@@ -1,0 +1,44 @@
+.box {
+  --line-clamp: 3;
+  
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  padding-inline: 1em;
+  hyphens: auto;
+  border: 1em solid white;
+  background: white;
+  border-radius: 4px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--line-clamp);
+  -webkit-box-orient: vertical;
+}
+
+.box::before {
+  content: '';
+  float: right;
+  height: calc((var(--line-clamp) - 1) * 1lh);
+}
+
+.box .show-more {
+  clear: both;
+  float: right;
+  text-decoration: underline;
+  cursor: pointer;
+  color: DodgerBlue;
+  font-size: 0.85em;
+  line-height: 1.5; /* because of smaller font-size, need to align to bottom */
+}
+
+.box .show-more:hover {
+  text-decoration: none;
+}
+
+.box:not(.truncated) .show-more {
+  display: none;
+}
+
