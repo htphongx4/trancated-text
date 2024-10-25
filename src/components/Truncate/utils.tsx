@@ -1,4 +1,3 @@
-import React from "react";
 
 export const getEllipsisWidth = (node?: HTMLSpanElement | null) => {
   return node?.offsetWidth;
