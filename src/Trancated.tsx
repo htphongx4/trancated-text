@@ -21,14 +21,22 @@ export const Trancated = ({ text }: { text: string }) => {
 
   const onShowMore = () => {
     ref.current?.classList.toggle("line-clamp");
-  }
+  };
 
   return (
     <>
       {isTextTruncated ? "Truncated" : "Not Truncated"}
-      <div ref={ref} id="truncatedContainer" className="box line-clamp">
-        <span className="show-more" onClick={onShowMore}>Show More</span>
-        <span>{text}</span>
+      <div id="truncatedContainer" className="box">
+        {isTextTruncated && (
+          <div className="show-more">
+            <span style={{ color: "black" }}>...</span>
+            <span onClick={onShowMore}>Show More</span>
+          </div>
+        )}
+
+        <span ref={ref} className="text line-clamp">
+          {text}
+        </span>
       </div>
     </>
   );
