@@ -1,3 +1,4 @@
+import './App.css'
 import { ShowMore } from "@re-dev/react-truncate";
 
 function App() {
@@ -5,7 +6,7 @@ function App() {
   return (
     <div>
       <div>say hello</div>
-      <ShowMore more="Show more" less="" anchorClass="" lines={3}>
+      <ShowMore className="show-more-wego" more="Show more" less="" anchorClass="" lines={3}>
         {longText}
       </ShowMore>
     </div>
